@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  constructor() {}
+  @Input() form: FormGroup;
+  myGroup;
+
+  constructor(private router: Router) {
+    this.form = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl(),
+    });
+  }
+
+  onSubmit() {
+    this.router.navigate(['tabs/tab3']);
+  }
 }

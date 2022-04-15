@@ -13,6 +13,8 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
   imports: [
     IonicModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
   ],

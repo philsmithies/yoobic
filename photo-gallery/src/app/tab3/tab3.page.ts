@@ -21,4 +21,8 @@ export class Tab3Page implements OnInit {
         console.log('profiles are ', this.profiles);
       });
   }
+
+  openProfile(profile) {
+    console.log(profile);
+  }
 }

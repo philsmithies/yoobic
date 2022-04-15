@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> Tab 3 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,5 +11,12 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="bgFile">
+    <div *ngFor="let profile of profiles">
+      <img src="{{profile.picture.medium}}" width="50px" height="50px" />
+      {{profile.name.first}} {{ profile.name.last}}
+    </div>
+  </div>
+
+  <ion-card class="bgFile"> </ion-card>
 </ion-content>

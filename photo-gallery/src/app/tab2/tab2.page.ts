@@ -1,3 +1,7 @@
+/**
+ * where you have your functions
+ */
+
 import { Component } from '@angular/core';
 import { PhotoService } from '../services/photo.service';
 

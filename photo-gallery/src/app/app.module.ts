@@ -9,10 +9,22 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { Firebase } from '@awesome-cordova-plugins/firebase/ngx';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth/';
+import { AngularFireFunctionsModule } from '@angular/fire/compat/functions/';
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireFunctionsModule,
+    AngularFireMessagingModule,
     BrowserModule,
     CommonModule,
     IonicModule.forRoot(),
@@ -20,7 +32,10 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    Firebase,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

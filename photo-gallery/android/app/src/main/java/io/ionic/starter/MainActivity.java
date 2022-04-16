@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.firebase.yoobic;
 
 import com.getcapacitor.BridgeActivity;
 

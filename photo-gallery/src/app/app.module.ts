@@ -16,6 +16,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth/';
 import { AngularFireFunctionsModule } from '@angular/fire/compat/functions/';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -38,4 +41,20 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private menu: MenuController) {}
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  openEnd() {
+    this.menu.open('end');
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
+  }
+}

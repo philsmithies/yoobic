@@ -18,6 +18,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/compat/functions/';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { MenuController } from '@ionic/angular';
     BrowserModule,
     CommonModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

@@ -4,7 +4,7 @@ import { MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 
 import { AuthService } from './services/auth.service';
-import { SupabaseService } from './supabase.service';
+import { SupabaseService } from './services/supabase.service';
 
 @Component({
   selector: 'app-root',

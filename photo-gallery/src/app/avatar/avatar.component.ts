@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SupabaseService } from '../supabase.service';
+import { SupabaseService } from '../services/supabase.service';
 import { Camera, CameraResultType } from '@capacitor/camera';
 @Component({
   selector: 'app-avatar',
@@ -14,6 +14,37 @@ import { Camera, CameraResultType } from '@capacitor/camera';
       </ng-template>
     </div>
   `,
+  styles: [
+    `
+      :host {
+        display: block;
+        margin: auto;
+        min-height: 150px;
+      }
+      :host .avatar_wrapper {
+        margin: 16px auto 16px;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 150px;
+        aspect-ratio: 1;
+        background: var(--ion-color-step-50);
+        border: thick solid var(--ion-color-step-200);
+      }
+      :host .avatar_wrapper:hover {
+        cursor: pointer;
+      }
+      :host .avatar_wrapper ion-icon.no-avatar {
+        width: 100%;
+        height: 115%;
+      }
+      :host img {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    `,
+  ],
 })
 export class AvatarComponent implements OnInit {
   _avatarUrl: SafeResourceUrl | undefined;

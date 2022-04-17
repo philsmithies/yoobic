@@ -2,10 +2,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Profile, SupabaseService } from '../supabase.service';
+import { Profile, SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-account',
+  templateUrl: 'account.page.html',
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {

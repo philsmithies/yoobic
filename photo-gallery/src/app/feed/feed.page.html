@@ -7,29 +7,34 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="todoForm" (ngSubmit)="addTodo()" class="todo-add">
-    <ion-input
-      class="todo-input"
-      type="text"
-      placeholder="What's on your mind?"
-      formControlName="task"
-      type="text"
-      color="primary"
-    ></ion-input>
-    <ion-button
-      type="submit"
-      expand="block"
-      fill="clear"
-      shape="round"
-      class="todo-share-button"
-    >
-      Share
-    </ion-button>
-  </form>
+  <ion-card>
+    <form [formGroup]="todoForm" (ngSubmit)="addTodo()" class="todo-add">
+      <ion-input
+        class="todo-input"
+        type="text"
+        placeholder="What's on your mind?"
+        formControlName="task"
+        type="text"
+        color="primary"
+      ></ion-input>
+      <ion-button
+        type="submit"
+        expand="block"
+        fill="clear"
+        shape="round"
+        class="todo-share-button"
+      >
+        Share
+      </ion-button>
+    </form>
+  </ion-card>
 
   <div *ngIf="errorText">{{ errorText }}</div>
   <ion-card *ngIf="todos.length; else emptyList" class="todo-wrapper">
-    <div *ngFor="let todo of todos" class="todo-task">{{todo.task}}</div>
+    <div *ngFor="let todo of todos" class="todo-task">
+      {{todo.task}}
+      <button (click)="delete(todo.id)">X</button>
+    </div>
   </ion-card>
   <ng-template #emptyList>
     <span> There isn't anything on the feed yet! </span>

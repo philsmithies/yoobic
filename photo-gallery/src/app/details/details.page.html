@@ -1,11 +1,26 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title *ngIf="profile"
+      >Profile: {{profile.name.first}} {{profile.name.last}}</ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="profile">
-    <p>{{profile.gender}}</p>
+  <div class="page-wrapper">
+    <ion-button (click)="goBack()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <div *ngIf="profile" class="profile-wrapper">
+      <img src="{{profile.picture.large}}" class="profile-image" />
+      <div class="profile-text">
+        <h2>{{profile.name.first}} {{profile.name.last}}</h2>
+        <p>{{profile.phone}}</p>
+        <p>{{profile.location.city}}, {{profile.location.country}}</p>
+      </div>
+    </div>
   </div>
 </ion-content>

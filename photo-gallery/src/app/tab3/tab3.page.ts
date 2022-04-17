@@ -28,6 +28,6 @@ export class Tab3Page implements OnInit {
   openProfile(profile) {
     console.log(profile);
     // to change to be ID when we have the database setup
-    this.router.navigate(['details', { email: profile.email }]);
+    this.router.navigate(['tabs/details', { email: profile.email }]);
   }
 }

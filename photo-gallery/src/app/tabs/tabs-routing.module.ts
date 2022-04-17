@@ -33,6 +33,11 @@ const routes: Routes = [
           import('../feed/feed.module').then((m) => m.FeedPageModule),
       },
       {
+        path: 'details',
+        loadChildren: () =>
+          import('../details/details.module').then((m) => m.DetailsPageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',

@@ -51,4 +51,13 @@ export class FeedPage implements OnInit {
       this.todos = todos ?? [];
     }
   }
+
+  async delete(id: string): Promise<void> {
+    try {
+      await this.supabase.deleteTodo(id);
+      this.todos = this.todos.filter((todo) => todo.id !== id);
+    } catch (error) {
+      console.error('error', error);
+    }
+  }
 }

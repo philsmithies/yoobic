@@ -22,7 +22,7 @@ export class UserGuard implements CanActivate {
     if (!isSignedIn) {
       this.router.navigateByUrl('auth');
     }
-    this.router.navigateByUrl('auth');
+
     return false;
   }
 }

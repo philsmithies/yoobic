@@ -7,18 +7,28 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
-    canActivate: [UserGuard],
+    // canActivate: [UserGuard],
   },
   {
     path: 'details',
     loadChildren: () =>
       import('./details/details.module').then((m) => m.DetailsPageModule),
-    canActivate: [UserGuard],
+    // canActivate: [UserGuard],
   },
   {
     path: 'auth',
     loadChildren: () =>
       import('./auth/auth.module').then((m) => m.AuthPageModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./account/account.module').then((m) => m.AccountPageModule),
   },
 ];
 @NgModule({

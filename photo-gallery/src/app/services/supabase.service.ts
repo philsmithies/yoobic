@@ -107,6 +107,7 @@ export class SupabaseService {
 
   addTodo(task: string) {
     const userId = this.getSession()?.user?.id as string;
+
     return this.supabase
       .from('todos')
       .insert({ task, user_id: userId })

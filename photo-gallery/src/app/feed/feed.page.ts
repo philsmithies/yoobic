@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable prefer-const */
 import { Component, OnInit } from '@angular/core';
-import { SupabaseService } from '../services/supabase.service';
+import { Profile, SupabaseService } from '../services/supabase.service';
 import { Todo } from '../models/todo';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -21,7 +22,9 @@ export class FeedPage implements OnInit {
     private readonly router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.fetchTodos();
+  }
 
   async addTodo(): Promise<void> {
     let task = this.todoForm.value.task.trim();
@@ -41,6 +44,7 @@ export class FeedPage implements OnInit {
 
   async fetchTodos(): Promise<void> {
     let { data: todos, error } = await this.supabase.fetchTodos();
+    console.log('todo list', todos);
     if (error) {
       console.error('error', error.message);
     } else {

@@ -32,4 +32,9 @@ export class AppComponent {
       }
     });
   }
+  async signOut() {
+    console.log('testing?');
+    await this.supabase.signOut();
+    this.router.navigate(['/'], { replaceUrl: true });
+  }
 }

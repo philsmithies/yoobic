@@ -28,6 +28,11 @@ const routes: Routes = [
           import('../account/account.module').then((m) => m.AccountPageModule),
       },
       {
+        path: 'tab5',
+        loadChildren: () =>
+          import('../feed/feed.module').then((m) => m.FeedPageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',

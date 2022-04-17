@@ -16,7 +16,9 @@ export class Tab3Page implements OnInit {
 
   getProfiles() {
     this.http
-      .get<any>('https://randomuser.me/api/?results=50&seed=foobar')
+      .get<any>(
+        'https://randomuser.me/api/?results=50&seed=lightning&nat=fr,gb'
+      )
       .subscribe((data) => {
         this.profiles = data.results;
         console.log('profiles are ', this.profiles);

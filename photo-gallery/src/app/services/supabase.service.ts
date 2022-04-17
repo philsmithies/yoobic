@@ -47,6 +47,14 @@ export class SupabaseService {
       .single();
   }
 
+  /**
+   * duplicated code here
+   */
+
+  getSession(): Session | null {
+    return this.supabase.auth.session();
+  }
+
   authChanges(
     callback: (event: AuthChangeEvent, session: Session | null) => void
   ) {
@@ -88,5 +96,32 @@ export class SupabaseService {
 
   createLoader() {
     return this.loadingCtrl.create();
+  }
+
+  fetchTodos() {
+    return this.supabase
+      .from('todos')
+      .select('*')
+      .order('id', { ascending: false });
+  }
+
+  addTodo(task: string) {
+    const userId = this.getSession()?.user?.id as string;
+    return this.supabase
+      .from('todos')
+      .insert({ task, user_id: userId })
+      .single();
+  }
+
+  toggleComplete(id: string, isCompleted: boolean) {
+    return this.supabase
+      .from('todos')
+      .update({ is_complete: !isCompleted })
+      .eq('id', id)
+      .single();
+  }
+
+  deleteTodo(id: string) {
+    return this.supabase.from('todos').delete().eq('id', id);
   }
 }

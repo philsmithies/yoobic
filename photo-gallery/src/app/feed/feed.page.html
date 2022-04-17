@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-container *ngIf="todos.length; else emptyList">
+    <div *ngFor="let todo of todos">{{todo.task}}</div>
+  </ion-container>
+  <ng-template #emptyList>
+    <span class="h-full flex justify-center items-center">
+      You do have any tasks yet!
+    </span>
+  </ng-template>
+  <form
+    [formGroup]="todoForm"
+    (ngSubmit)="addTodo()"
+    class="flex m-4 mt-0 h-10 mt-8"
+  >
+    <input
+      formControlName="task"
+      type="text"
+      class="bg-gray-200 border px-2 border-gray-300 w-full mr-4"
+    />
+    <button
+      type="submit"
+      class="flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out"
+    >
+      Add
+    </button>
+  </form>
+</ion-content>

@@ -46,6 +46,8 @@ export class AuthService {
   async anonymousLogin() {
     /// i removed the breaking .auth
     const credential = await this.afAuth.signInAnonymously();
+    console.log('user has been added to ', this.storage);
+    console.log('the user is', credential.user);
     return await this.updateUserData(credential.user);
   }
 

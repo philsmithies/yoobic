@@ -17,11 +17,11 @@ export class UserGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-    // const isSignedIn = await this.storage.get('userToken');
+    const isSignedIn = await this.storage.get('userToken');
 
-    // if (!isSignedIn) {
-    //   this.router.navigateByUrl('auth');
-    // }
+    if (!isSignedIn) {
+      this.router.navigateByUrl('auth');
+    }
     this.router.navigateByUrl('auth');
     return false;
   }

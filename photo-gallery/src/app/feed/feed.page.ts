@@ -23,6 +23,22 @@ export class FeedPage implements OnInit {
 
   ngOnInit() {}
 
+  async addTodo(): Promise<void> {
+    let task = this.todoForm.value.task.trim();
+    if (task.length <= 3) {
+      this.errorText = 'Task length should be more than 3!';
+    } else {
+      let { data: todo, error } = await this.supabase.addTodo(task);
+      if (error) {
+        this.errorText = error.message;
+      } else {
+        this.todos = [todo, ...this.todos];
+        this.errorText = null;
+        this.todoForm.reset();
+      }
+    }
+  }
+
   async fetchTodos(): Promise<void> {
     let { data: todos, error } = await this.supabase.fetchTodos();
     if (error) {

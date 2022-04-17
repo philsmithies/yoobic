@@ -4,15 +4,17 @@ import { SupabaseService } from '../services/supabase.service';
 @Component({
   selector: 'app-login',
   template: `
-    <ion-header>
+    <ion-header [translucent]="true">
       <ion-toolbar>
-        <ion-title>Login</ion-title>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Sign In</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <div class="ion-padding">
-        <h1>Supabase + Ionic Angular</h1>
         <p>Sign in via magic link with your email below</p>
       </div>
       <ion-list inset="true">

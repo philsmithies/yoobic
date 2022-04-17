@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,15 +17,15 @@ export class DetailsPage implements OnInit {
     private router: Router
   ) {}
   ngOnInit() {
-    // eslint-disable-next-line prefer-const
-    let email = this.activatedRoute.snapshot.paramMap.get('email');
-    this.getProfile(email);
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getProfile(params.email);
+    });
   }
 
   getProfile(email) {
     console.log('the email is', email);
     this.http
-      .get<any>(`https://randomuser.me/api/?seed=lightning&email=${email}`)
+      .get<any>(`https://randomuser.me/api/?email=${email}`)
       .subscribe((data) => {
         this.profile = data.results[0];
       });

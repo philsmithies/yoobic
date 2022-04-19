@@ -11,5 +11,7 @@ import { Profile, SupabaseService } from '../services/supabase.service';
 })
 export class TabsPage {
   session = this.supabase.session;
-  constructor(private readonly supabase: SupabaseService) {}
+  constructor(private readonly supabase: SupabaseService) {
+    console.log('the sessions is ', this.session);
+  }
 }

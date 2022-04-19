@@ -16,18 +16,16 @@ export class Tab3Page implements OnInit {
 
   getProfiles() {
     this.http
-      .get<any>(
-        'https://randomuser.me/api/?results=50&seed=lightning&nat=fr,gb'
-      )
+      .get<any>('https://akabab.github.io/starwars-api/api/all.json')
       .subscribe((data) => {
-        this.profiles = data.results;
-        console.log('profiles are ', this.profiles);
+        this.profiles = data;
+        console.log('profiles are ', data);
       });
   }
 
   openProfile(profile) {
-    console.log(profile);
+    console.log('the id ', profile.id);
     // to change to be ID when we have the database setup
-    this.router.navigate(['tabs/details', { email: profile.email }]);
+    this.router.navigate(['tabs/details', { id: profile.id }]);
   }
 }

@@ -15,11 +15,10 @@
       <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
     </ion-button>
     <div *ngIf="profile" class="profile-wrapper">
-      <img src="{{profile.picture.large}}" class="profile-image" />
+      <img src="{{profile.image}}" class="profile-image" />
       <div class="profile-text">
-        <h2>{{profile.name.first}} {{profile.name.last}}</h2>
-        <p>{{profile.phone}}</p>
-        <p>{{profile.location.city}}, {{profile.location.country}}</p>
+        <h2>{{profile.name}}</h2>
+        <p>Born: {{profile.born}}</p>
       </div>
     </div>
   </div>

@@ -18,16 +18,16 @@ export class DetailsPage implements OnInit {
   ) {}
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.getProfile(params.email);
+      this.getProfile(params.id);
     });
   }
 
-  getProfile(email) {
-    console.log('the email is', email);
+  getProfile(id) {
     this.http
-      .get<any>(`https://randomuser.me/api/?email=${email}`)
+      .get<any>(`https://akabab.github.io/starwars-api/api/id/${id}.json`)
       .subscribe((data) => {
-        this.profile = data.results[0];
+        console.log('the user is', data);
+        this.profile = data;
       });
   }
 

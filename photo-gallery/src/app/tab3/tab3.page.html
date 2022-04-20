@@ -10,15 +10,29 @@
 <ion-content [fullscreen]="true">
   <div class="bgFile">
     <div *ngFor="let profile of profiles">
-      <img
-        src="{{profile.image}}"
-        width="50px"
-        height="50px"
-        (click)="openProfile(profile)"
-      />
-      {{profile.name}}
+      <ion-item button class="ion-padding">
+        <img
+          src="{{profile.image}}"
+          width="100px"
+          height="100px"
+          (click)="openProfile(profile)"
+          slot="start"
+          class="avatar-icon"
+        />
+
+        <ion-label>
+          {{profile.name}}<br />
+          <div *ngIf="profile.height">Height: {{profile.height}}</div>
+          <div *ngIf="profile.mass">Mass: {{profile.mass}}</div>
+        </ion-label>
+
+        <ion-chip color="secondary" slot="end">
+          <ion-label color="dark"
+            >{{capitalizeSpecies(profile.species)}}</ion-label
+          >
+        </ion-chip>
+        <ion-icon name="heart-outline" slot="end" color="secondary"></ion-icon>
+      </ion-item>
     </div>
   </div>
-
-  <ion-card class="bgFile"> </ion-card>
 </ion-content>

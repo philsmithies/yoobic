@@ -35,6 +35,12 @@ export class Tab3Page implements OnInit {
     }
   }
 
+  capitalizeSpecies(speciesInputString) {
+    return (
+      speciesInputString.charAt(0).toUpperCase() + speciesInputString.slice(1)
+    );
+  }
+
   openProfile(profile) {
     console.log('the id ', profile.id);
     // to change to be ID when we have the database setup

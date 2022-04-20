@@ -18,24 +18,24 @@ const routes: Routes = [
   {
     path: 'details',
     loadChildren: () =>
-      import('./details/details.module').then((m) => m.DetailsPageModule),
+      import('./pages/details/details.module').then((m) => m.DetailsPageModule),
     // canActivate: [UserGuard],
   },
 
   {
     path: 'login',
     loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginPageModule),
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'account',
     loadChildren: () =>
-      import('./account/account.module').then((m) => m.AccountPageModule),
+      import('./pages/account/account.module').then((m) => m.AccountPageModule),
   },
   {
     path: 'feed',
     loadChildren: () =>
-      import('./myNotes/myNotes.module').then((m) => m.FeedPageModule),
+      import('./pages/myNotes/myNotes.module').then((m) => m.FeedPageModule),
   },
   {
     path: 'users',

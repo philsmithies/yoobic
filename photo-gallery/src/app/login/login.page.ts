@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   email = '';
   password: '';
+  loginActive = true;
   constructor(
     private readonly supabase: SupabaseService,
     private router: Router
@@ -31,6 +32,12 @@ export class LoginPage implements OnInit {
         error.error_description || error.message
       );
     }
+  }
+
+  handleFormChange() {
+    console.log('this login is', this.loginActive);
+    this.loginActive = !this.loginActive;
+    console.log('this login is', this.loginActive);
   }
 
   async handleSubmit(event: any) {

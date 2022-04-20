@@ -9,12 +9,19 @@ const routes: Routes = [
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
     // canActivate: [UserGuard],
   },
+  // {
+  //   path: '',
+  //   children: [{ path: '', redirectTo: '/login', pathMatch: 'full' }],
+
+  //   // canActivate: [UserGuard],
+  // },
   {
     path: 'details',
     loadChildren: () =>
       import('./details/details.module').then((m) => m.DetailsPageModule),
     // canActivate: [UserGuard],
   },
+
   {
     path: 'login',
     loadChildren: () =>

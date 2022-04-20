@@ -24,6 +24,7 @@ export class AppComponent {
   //   await this.storage.create();
   //   console.log('storage has been created', this.storage);
   // }
+  session = this.supabase.session;
   constructor(private supabase: SupabaseService, private router: Router) {
     this.supabase.authChanges((_, session) => {
       console.log(session);

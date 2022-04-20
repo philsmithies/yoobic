@@ -13,10 +13,10 @@ export class AccountPage implements OnInit {
   profile: Profile = {
     username: '',
     avatar_url: '',
-    website: '',
   };
 
   session = this.supabase.session;
+  profiles: any[];
 
   constructor(
     private readonly supabase: SupabaseService,
@@ -24,6 +24,7 @@ export class AccountPage implements OnInit {
   ) {}
   ngOnInit() {
     this.getProfile();
+    this.getProfiles();
   }
 
   async getProfile() {
@@ -34,6 +35,21 @@ export class AccountPage implements OnInit {
       }
       if (profile) {
         this.profile = profile;
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
+  async getProfiles() {
+    try {
+      let { data: profiles, error, status } = await this.supabase.profiles;
+      if (error && status !== 406) {
+        throw error;
+      }
+      if (profiles) {
+        console.log('profiles are ', profiles);
+        this.profiles = profiles;
       }
     } catch (error) {
       alert(error.message);

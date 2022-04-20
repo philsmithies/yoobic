@@ -11,7 +11,6 @@ import { environment } from '../../environments/environment';
 
 export interface Profile {
   username: string;
-  website: string;
   avatar_url: string;
 }
 
@@ -42,9 +41,17 @@ export class SupabaseService {
   get profile() {
     return this.supabase
       .from('profiles')
-      .select(`username, website, avatar_url`)
+      .select(`username, avatar_url`)
       .eq('id', this.user?.id)
       .single();
+  }
+
+  get starWarsApi() {
+    return this.supabase.from('starwars').select(`name, height, mass`);
+  }
+
+  get profiles() {
+    return this.supabase.from('profiles').select(`username, avatar_url`);
   }
 
   /**
@@ -61,8 +68,25 @@ export class SupabaseService {
     return this.supabase.auth.onAuthStateChange(callback);
   }
 
-  signIn(email: string) {
-    return this.supabase.auth.signIn({ email });
+  async signIn(email: string, password: string) {
+    const { user, session, error } = await this.supabase.auth.signIn({
+      email,
+      password,
+    });
+    if (error) {
+      throw error;
+    }
+  }
+
+  async signUp(userEmail: string, userPassword: string) {
+    console.log('user is', userEmail, userPassword);
+    const { user, session, error } = await this.supabase.auth.signUp({
+      email: userEmail,
+      password: userPassword,
+    });
+    if (error) {
+      throw error;
+    }
   }
 
   signOut() {
@@ -124,5 +148,18 @@ export class SupabaseService {
 
   deleteTodo(id: string) {
     return this.supabase.from('todos').delete().eq('id', id);
+  }
+
+  addVote(characterId: string) {
+    const userId = this.getSession()?.user?.id as string;
+    console.log('user id is', userId);
+    console.log('char id is', characterId);
+    return this.supabase
+      .from('votes')
+      .insert({ characterId, user_id: userId, vote: 1 })
+      .single();
+    /**
+     * add a vote and can't add if tyhe user id is already present
+     */
   }
 }

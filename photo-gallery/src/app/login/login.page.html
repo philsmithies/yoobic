@@ -1,10 +1,57 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
     <ion-title>Sign In</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-list inset="true">
+    <form (ngSubmit)="handleLogin($event)">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          name="email"
+          autocomplete
+          type="email"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          autocomplete
+          type="password"
+        ></ion-input>
+      </ion-item>
+      <div class="ion-text-center">
+        <ion-button type="submit" fill="clear">Login</ion-button>
+      </div>
+    </form>
+    <form (ngSubmit)="handleSubmit($event)">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          name="email"
+          autocomplete
+          type="email"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+        ></ion-input>
+      </ion-item>
+      <div class="ion-text-center">
+        <ion-button type="submit" fill="clear">Signup</ion-button>
+      </div>
+    </form>
+  </ion-list>
+</ion-content>
 
 <ion-content> </ion-content>

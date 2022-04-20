@@ -27,14 +27,6 @@
       ></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Website</ion-label>
-      <ion-input
-        type="url"
-        name="website"
-        [(ngModel)]="profile.website"
-      ></ion-input>
-    </ion-item>
     <div class="ion-text-center">
       <ion-button fill="clear" (click)="updateProfile()"
         >Update Profile</ion-button
@@ -44,5 +36,12 @@
 
   <div class="ion-text-center">
     <ion-button fill="clear" (click)="signOut()">Log Out</ion-button>
+  </div>
+
+  <div *ngIf="profiles">
+    <div *ngFor="let profile of profiles" class="todo-task">
+      {{profile.username}}
+      <app-avatar [avatarUrl]="profile.avatar_url"></app-avatar>
+    </div>
   </div>
 </ion-content>

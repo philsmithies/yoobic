@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-details',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class DetailsPage implements OnInit {
   profile;
   constructor(
+    private readonly supabase: SupabaseService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private router: Router
@@ -26,12 +28,15 @@ export class DetailsPage implements OnInit {
     this.http
       .get<any>(`https://akabab.github.io/starwars-api/api/id/${id}.json`)
       .subscribe((data) => {
-        console.log('the user is', data);
         this.profile = data;
       });
   }
 
   goBack() {
     this.router.navigate(['/tabs/tab3']);
+  }
+
+  vote() {
+    this.supabase.addVote(this.profile.id);
   }
 }

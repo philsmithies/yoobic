@@ -25,11 +25,9 @@ export class DetailsPage implements OnInit {
   }
 
   getProfile(id) {
-    this.http
-      .get<any>(`https://akabab.github.io/starwars-api/api/id/${id}.json`)
-      .subscribe((data) => {
-        this.profile = data;
-      });
+    this.supabase.starWarsProfile(id).then(({ data }) => {
+      this.profile = data;
+    });
   }
 
   goBack() {

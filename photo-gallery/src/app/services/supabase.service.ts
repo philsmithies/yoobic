@@ -47,7 +47,7 @@ export class SupabaseService {
   }
 
   get starWarsApi() {
-    return this.supabase.from('starwars').select(`name, height, mass`);
+    return this.supabase.from('starwars').select('*');
   }
 
   get profiles() {
@@ -161,5 +161,9 @@ export class SupabaseService {
     /**
      * add a vote and can't add if tyhe user id is already present
      */
+  }
+
+  starWarsProfile(id) {
+    return this.supabase.from('starwars').select('*').eq('id', id).single();
   }
 }

@@ -1,6 +1,8 @@
+/* eslint-disable prefer-const */
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-tab3',
@@ -9,18 +11,28 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page implements OnInit {
   profiles;
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private readonly supabase: SupabaseService
+  ) {}
   ngOnInit(): void {
     this.getProfiles();
   }
 
-  getProfiles() {
-    this.http
-      .get<any>('https://akabab.github.io/starwars-api/api/all.json')
-      .subscribe((data) => {
-        this.profiles = data;
-        console.log('profiles are ', data);
-      });
+  async getProfiles() {
+    try {
+      let { data: profiles, error, status } = await this.supabase.starWarsApi;
+      if (error && status !== 406) {
+        throw error;
+      }
+      if (profiles) {
+        console.log('profiles are ', profiles);
+        this.profiles = profiles;
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   }
 
   openProfile(profile) {

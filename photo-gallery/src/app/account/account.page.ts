@@ -49,10 +49,7 @@ export class AccountPage implements OnInit {
       if (error && status !== 406) {
         throw error;
       }
-      if (profiles) {
-        console.log('profiles are ', profiles);
-        this.profiles = profiles;
-      }
+      this.profiles = profiles;
     } catch (error) {
       alert(error.message);
     }
@@ -71,8 +68,7 @@ export class AccountPage implements OnInit {
   }
 
   async signOut() {
-    console.log('testing?');
     await this.supabase.signOut();
-    this.router.navigate(['/'], { replaceUrl: true });
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../services/supabase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,10 @@ import { SupabaseService } from '../services/supabase.service';
 export class LoginPage implements OnInit {
   email = '';
   password: '';
-  constructor(private readonly supabase: SupabaseService) {}
+  constructor(
+    private readonly supabase: SupabaseService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
   async handleLogin(event: any) {
@@ -19,7 +23,8 @@ export class LoginPage implements OnInit {
     try {
       await this.supabase.signIn(this.email, this.password);
       await loader.dismiss();
-      await this.supabase.createNotice('Check your email for the login link!');
+      await this.supabase.createNotice('Success!');
+      this.router.navigate(['/tabs/tab3'], { replaceUrl: true });
     } catch (error) {
       await loader.dismiss();
       await this.supabase.createNotice(
@@ -35,7 +40,7 @@ export class LoginPage implements OnInit {
     try {
       await this.supabase.signUp(this.email, this.password);
       await loader.dismiss();
-      await this.supabase.createNotice('Success!');
+      await this.supabase.createNotice('Signed up!');
     } catch (error) {
       await loader.dismiss();
       await this.supabase.createNotice(

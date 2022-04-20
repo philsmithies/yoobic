@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   email = '';
-  password: '';
+  password = '';
   loginActive = true;
   constructor(
     private readonly supabase: SupabaseService,
@@ -24,7 +24,6 @@ export class LoginPage implements OnInit {
     try {
       await this.supabase.signIn(this.email, this.password);
       await loader.dismiss();
-      await this.supabase.createNotice('Success!');
       this.router.navigate(['/tabs/tab3'], { replaceUrl: true });
     } catch (error) {
       await loader.dismiss();
@@ -34,13 +33,17 @@ export class LoginPage implements OnInit {
     }
   }
 
-  handleFormChange() {
-    console.log('this login is', this.loginActive);
-    this.loginActive = !this.loginActive;
-    console.log('this login is', this.loginActive);
+  async handleAnonymousLogin(event: any) {
+    this.email = 'b@b.com';
+    this.password = 'nice123';
+    this.handleLogin(event);
   }
 
-  async handleSubmit(event: any) {
+  handleFormChange() {
+    this.loginActive = !this.loginActive;
+  }
+
+  async handleSignUp(event: any) {
     event.preventDefault();
     const loader = await this.supabase.createLoader();
     await loader.present();

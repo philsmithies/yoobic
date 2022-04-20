@@ -24,7 +24,6 @@ export class UsersPage implements OnInit {
       if (error && status !== 406) {
         throw error;
       }
-      console.log('profiles is', profiles);
       this.profiles = profiles;
     } catch (error) {
       alert(error.message);

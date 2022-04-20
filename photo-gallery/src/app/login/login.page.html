@@ -51,6 +51,12 @@
           Don't have an account?
           <a (click)="handleFormChange()" class="login-link">Sign Up</a>
         </div>
+        <div class="login-link-text">
+          Or Sign in
+          <a (click)="handleAnonymousLogin($event)" class="login-link"
+            >Anonymously</a
+          >
+        </div>
       </ion-list>
     </ion-col>
   </ion-grid>
@@ -67,7 +73,7 @@
         <h1 class="masters-subtitle">Sign Up</h1>
       </ion-text>
       <ion-list inset="true" class="login-form">
-        <form (ngSubmit)="handleLogin($event)" class="ion-padding-top">
+        <form (ngSubmit)="handleSignUp($event)" class="ion-padding-top">
           <ion-item class="ion-padding-start">
             <ion-label position="stacked">Email</ion-label>
             <ion-input

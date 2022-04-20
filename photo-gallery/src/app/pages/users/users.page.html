@@ -9,7 +9,7 @@
 
 <ion-content>
   <div *ngIf="profiles">
-    <div *ngFor="let profile of profiles" class="todo-task">
+    <div *ngFor="let profile of profiles">
       {{profile.username}}
       <app-avatar [avatarUrl]="profile.avatar_url"></app-avatar>
     </div>

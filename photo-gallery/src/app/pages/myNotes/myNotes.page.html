@@ -8,11 +8,11 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <form [formGroup]="todoForm" (ngSubmit)="addTodo()" class="todo-add">
+    <form [formGroup]="noteForm" (ngSubmit)="addNote()" class="note-add">
       <ion-input
-        class="todo-input"
+        class="note-input"
         type="text"
-        placeholder="What's on your mind?"
+        placeholder="Add a note?"
         formControlName="task"
         type="text"
         color="primary"
@@ -22,21 +22,23 @@
         expand="block"
         fill="clear"
         shape="round"
-        class="todo-share-button"
+        class="note-share-button"
       >
-        Share
+        Submit
       </ion-button>
     </form>
   </ion-card>
 
   <div *ngIf="errorText">{{ errorText }}</div>
-  <ion-card *ngIf="todos.length; else emptyList" class="todo-wrapper">
-    <div *ngFor="let todo of todos" class="todo-task">
-      {{todo.task}}
-      <button (click)="delete(todo.id)">X</button>
+  <ion-card *ngIf="notes.length; else emptyList" class="note-wrapper">
+    <div *ngFor="let note of notes" class="note-task">
+      {{note.task}}
+      <button (click)="delete(note.id)">X</button>
     </div>
   </ion-card>
   <ng-template #emptyList>
-    <span> There isn't anything on the feed yet! </span>
+    <ion-content class="empty-feed-text">
+      There aren't any notes yet!
+    </ion-content>
   </ng-template>
 </ion-content>

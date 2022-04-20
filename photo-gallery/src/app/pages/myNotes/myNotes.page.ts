@@ -26,16 +26,16 @@ export class MyNotesPage implements OnInit {
     this.fetchNotes();
   }
 
-  async addTodo(): Promise<void> {
+  async addNote(): Promise<void> {
     let task = this.noteForm.value.task.trim();
     if (task.length <= 3) {
-      this.errorText = 'Task length should be more than 3!';
+      this.errorText = 'Note length should be more than 3!';
     } else {
-      let { data: todo, error } = await this.supabase.addNote(task);
+      let { data: note, error } = await this.supabase.addNote(task);
       if (error) {
         this.errorText = error.message;
       } else {
-        this.notes = [todo, ...this.notes];
+        this.notes = [note, ...this.notes];
         this.errorText = null;
         this.noteForm.reset();
       }
@@ -43,19 +43,19 @@ export class MyNotesPage implements OnInit {
   }
 
   async fetchNotes(): Promise<void> {
-    let { data: todos, error } = await this.supabase.fetchNotes();
-    console.log('todo list', todos);
+    let { data: notes, error } = await this.supabase.fetchNotes();
+    console.log('notes list', notes);
     if (error) {
       console.error('error', error.message);
     } else {
-      this.notes = todos ?? [];
+      this.notes = notes ?? [];
     }
   }
 
   async delete(id: string): Promise<void> {
     try {
       await this.supabase.deleteNote(id);
-      this.notes = this.notes.filter((todo) => todo.id !== id);
+      this.notes = this.notes.filter((note) => note.id !== id);
     } catch (error) {
       console.error('error', error);
     }

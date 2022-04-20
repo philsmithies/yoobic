@@ -1,4 +1,4 @@
-.todo-task {
+.note-task {
   background-color: white;
   width: 80%;
   padding: 2em;
@@ -6,7 +6,7 @@
   margin-bottom: 0.5em;
   border-radius: 15px;
 }
-.todo-wrapper {
+.note-wrapper {
   padding-top: 1.5em;
   height: 80vh;
   display: flex;
@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.todo-add {
+.note-add {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,14 +22,20 @@
   width: 60vw;
 }
 
-.todo-input {
+.note-input {
   background-color: white;
   border-radius: 5px;
   width: 60%;
 }
 
-.todo-share-button {
+.note-share-button {
   border: 2px solid var(--ion-color-primary);
   border-radius: 5px;
   margin-left: 5px;
+}
+
+.empty-feed-text {
+  background-color: red;
+  text-align: center;
+  margin: 0 auto;
 }

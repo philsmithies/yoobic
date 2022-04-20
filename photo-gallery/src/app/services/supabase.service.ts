@@ -142,12 +142,12 @@ export class SupabaseService {
       .order('id', { ascending: false });
   }
 
-  addNote(task: string) {
+  addNote(note: string) {
     const userId = this.getSession()?.user?.id as string;
 
     return this.supabase
       .from('todos')
-      .insert({ task, user_id: userId })
+      .insert({ task: note, user_id: userId })
       .single();
   }
 

@@ -34,8 +34,8 @@ export class LoginPage implements OnInit {
   }
 
   async handleAnonymousLogin(event: any) {
-    this.email = 'b@b.com';
-    this.password = 'nice123';
+    this.email = 'luke@skywalker.com';
+    this.password = 'whoismyfather';
     this.handleLogin(event);
   }
 

@@ -5,3 +5,15 @@
   object-fit: cover;
   object-position: center top;
 }
+
+ion-icon {
+  width: 30px;
+  height: 30px;
+  margin: 1em auto;
+  transition: 0.25s ease transform;
+}
+
+ion-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

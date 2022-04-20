@@ -24,6 +24,14 @@ export class DetailsPage implements OnInit {
     });
   }
 
+  /**
+   * DRY import here from shared?
+   */
+
+  capitalizeString(inputString) {
+    return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+  }
+
   getProfile(id) {
     this.supabase.starWarsProfile(id).then(({ data }) => {
       this.profile = data;

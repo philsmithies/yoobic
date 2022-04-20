@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { IonicModule } from '@ionic/angular';
-import { MyMenuComponent } from './mymenu/mymenu.component';
 
 @NgModule({
-  declarations: [ProfileComponent, MyMenuComponent],
+  declarations: [ProfileComponent],
   imports: [CommonModule, IonicModule],
-  exports: [ProfileComponent, MyMenuComponent],
+  exports: [ProfileComponent],
 })
 export class SharedModule {}

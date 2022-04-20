@@ -35,10 +35,8 @@ export class MastersPage implements OnInit {
     }
   }
 
-  capitalizeSpecies(speciesInputString) {
-    return (
-      speciesInputString.charAt(0).toUpperCase() + speciesInputString.slice(1)
-    );
+  capitalizeString(inputString) {
+    return inputString.charAt(0).toUpperCase() + inputString.slice(1);
   }
 
   openProfile(profile) {

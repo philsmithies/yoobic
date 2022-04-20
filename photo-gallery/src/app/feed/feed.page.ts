@@ -2,7 +2,7 @@
 /* eslint-disable prefer-const */
 import { Component, OnInit } from '@angular/core';
 import { Profile, SupabaseService } from '../services/supabase.service';
-import { Todo } from '../models/todo';
+import { Note } from '../models/note';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -12,8 +12,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./feed.page.scss'],
 })
 export class FeedPage implements OnInit {
-  todos: Todo[] = [];
-  todoForm: FormGroup = new FormGroup({
+  notes: Note[] = [];
+  noteForm: FormGroup = new FormGroup({
     task: new FormControl(),
   });
   errorText: string | undefined | null;
@@ -23,39 +23,39 @@ export class FeedPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.fetchTodos();
+    this.fetchNotes();
   }
 
   async addTodo(): Promise<void> {
-    let task = this.todoForm.value.task.trim();
+    let task = this.noteForm.value.task.trim();
     if (task.length <= 3) {
       this.errorText = 'Task length should be more than 3!';
     } else {
-      let { data: todo, error } = await this.supabase.addTodo(task);
+      let { data: todo, error } = await this.supabase.addNote(task);
       if (error) {
         this.errorText = error.message;
       } else {
-        this.todos = [todo, ...this.todos];
+        this.notes = [todo, ...this.notes];
         this.errorText = null;
-        this.todoForm.reset();
+        this.noteForm.reset();
       }
     }
   }
 
-  async fetchTodos(): Promise<void> {
-    let { data: todos, error } = await this.supabase.fetchTodos();
+  async fetchNotes(): Promise<void> {
+    let { data: todos, error } = await this.supabase.fetchNotes();
     console.log('todo list', todos);
     if (error) {
       console.error('error', error.message);
     } else {
-      this.todos = todos ?? [];
+      this.notes = todos ?? [];
     }
   }
 
   async delete(id: string): Promise<void> {
     try {
-      await this.supabase.deleteTodo(id);
-      this.todos = this.todos.filter((todo) => todo.id !== id);
+      await this.supabase.deleteNote(id);
+      this.notes = this.notes.filter((todo) => todo.id !== id);
     } catch (error) {
       console.error('error', error);
     }

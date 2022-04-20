@@ -134,7 +134,7 @@ export class SupabaseService {
     return this.loadingCtrl.create();
   }
 
-  fetchTodos() {
+  fetchNotes() {
     return this.supabase
       .from('todos')
       .select('*')
@@ -142,7 +142,7 @@ export class SupabaseService {
       .order('id', { ascending: false });
   }
 
-  addTodo(task: string) {
+  addNote(task: string) {
     const userId = this.getSession()?.user?.id as string;
 
     return this.supabase
@@ -151,15 +151,7 @@ export class SupabaseService {
       .single();
   }
 
-  toggleComplete(id: string, isCompleted: boolean) {
-    return this.supabase
-      .from('todos')
-      .update({ is_complete: !isCompleted })
-      .eq('id', id)
-      .single();
-  }
-
-  deleteTodo(id: string) {
+  deleteNote(id: string) {
     return this.supabase.from('todos').delete().eq('id', id);
   }
 

@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MastersPage } from './masters.page';
 
 import { MastersPageRoutingModule } from './masters-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { FeedPageRoutingModule } from './myNotes-routing.module';
+import { MyNotesPageRoutingModule } from './myNotes-routing.module';
 import { MyNotesPage } from './myNotes.page';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { MyNotesPage } from './myNotes.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    FeedPageRoutingModule,
+    MyNotesPageRoutingModule,
   ],
   declarations: [MyNotesPage],
 })

@@ -10,32 +10,40 @@ const routes: Routes = [
       {
         path: 'tab1',
         loadChildren: () =>
-          import('../login/login.module').then((m) => m.LoginPageModule),
+          import('../pages/login/login.module').then((m) => m.LoginPageModule),
       },
       {
         path: 'tab2',
         loadChildren: () =>
-          import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
+          import('../pages/tab2/tab2.module').then((m) => m.Tab2PageModule),
       },
       {
         path: 'masters',
         loadChildren: () =>
-          import('../masters/masters.module').then((m) => m.MastersPageModule),
+          import('../pages/masters/masters.module').then(
+            (m) => m.MastersPageModule
+          ),
       },
       {
         path: 'tab4',
         loadChildren: () =>
-          import('../account/account.module').then((m) => m.AccountPageModule),
+          import('../pages/account/account.module').then(
+            (m) => m.AccountPageModule
+          ),
       },
       {
         path: 'tab5',
         loadChildren: () =>
-          import('../myNotes/myNotes.module').then((m) => m.FeedPageModule),
+          import('../pages/myNotes/myNotes.module').then(
+            (m) => m.FeedPageModule
+          ),
       },
       {
         path: 'details',
         loadChildren: () =>
-          import('../details/details.module').then((m) => m.DetailsPageModule),
+          import('../pages/details/details.module').then(
+            (m) => m.DetailsPageModule
+          ),
       },
       {
         path: 'users',

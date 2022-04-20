@@ -13,6 +13,8 @@ export class AccountPage implements OnInit {
   profile: Profile = {
     username: '',
     avatar_url: '',
+    bio: '',
+    favourites: [],
   };
 
   session = this.supabase.session;

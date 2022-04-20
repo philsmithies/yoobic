@@ -9,9 +9,21 @@ import {
 } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
 
+export interface StarWarsMaster {
+  name: string;
+  height: number;
+  mass: number;
+  gender: string;
+  wiki: string;
+  image: string;
+  born: string;
+  species: string;
+}
 export interface Profile {
   username: string;
   avatar_url: string;
+  bio: string;
+  favourites: Array<StarWarsMaster>;
 }
 
 @Injectable({
@@ -126,6 +138,7 @@ export class SupabaseService {
     return this.supabase
       .from('todos')
       .select('*')
+      .eq('user_id', this.user?.id)
       .order('id', { ascending: false });
   }
 

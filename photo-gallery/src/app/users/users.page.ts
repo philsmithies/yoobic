@@ -1,4 +1,8 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import { Component, OnInit } from '@angular/core';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-users',
@@ -6,10 +10,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.page.scss'],
 })
 export class UsersPage implements OnInit {
+  profiles: any[];
 
-  constructor() { }
+  constructor(private readonly supabase: SupabaseService) {}
 
   ngOnInit() {
+    this.getProfiles();
   }
 
+  async getProfiles() {
+    try {
+      let { data: profiles, error, status } = await this.supabase.profiles;
+      if (error && status !== 406) {
+        throw error;
+      }
+      console.log('profiles is', profiles);
+      this.profiles = profiles;
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 }

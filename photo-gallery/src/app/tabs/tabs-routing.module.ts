@@ -38,15 +38,20 @@ const routes: Routes = [
           import('../details/details.module').then((m) => m.DetailsPageModule),
       },
       {
+        path: 'users',
+        loadChildren: () =>
+          import('../users/users.module').then((m) => m.UsersPageModule),
+      },
+      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/login',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
 ];

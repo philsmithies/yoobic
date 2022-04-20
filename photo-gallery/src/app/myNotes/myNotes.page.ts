@@ -8,10 +8,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-feed',
-  templateUrl: './feed.page.html',
-  styleUrls: ['./feed.page.scss'],
+  templateUrl: './myNotes.page.html',
+  styleUrls: ['./myNotes.page.scss'],
 })
-export class FeedPage implements OnInit {
+export class MyNotesPage implements OnInit {
   notes: Note[] = [];
   noteForm: FormGroup = new FormGroup({
     task: new FormControl(),

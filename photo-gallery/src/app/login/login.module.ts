@@ -8,7 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-import { AvatarComponentModule } from '../avatar/avatar.module';
+import { AvatarComponentModule } from '../shared/avatar/avatar.module';
 
 @NgModule({
   imports: [

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { UsersPageRoutingModule } from './users-routing.module';
 
 import { UsersPage } from './users.page';
-import { AvatarComponentModule } from '../avatar/avatar.module';
+import { AvatarComponentModule } from '../shared/avatar/avatar.module';
 
 @NgModule({
   imports: [

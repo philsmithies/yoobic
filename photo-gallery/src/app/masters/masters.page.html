@@ -10,12 +10,11 @@
 <ion-content [fullscreen]="true">
   <div class="bgFile">
     <div *ngFor="let profile of profiles">
-      <ion-item button class="ion-padding">
+      <ion-item button class="ion-padding" (click)="openProfile(profile)">
         <img
           src="{{profile.image}}"
           width="100px"
           height="100px"
-          (click)="openProfile(profile)"
           slot="start"
           class="avatar-icon"
         />
@@ -27,7 +26,7 @@
         </ion-label>
 
         <ion-chip color="secondary" slot="end">
-          <ion-label color="dark"
+          <ion-label color="secondary"
             >{{capitalizeSpecies(profile.species)}}</ion-label
           >
         </ion-chip>

@@ -6,10 +6,10 @@ import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss'],
+  templateUrl: 'masters.page.html',
+  styleUrls: ['masters.page.scss'],
 })
-export class Tab3Page implements OnInit {
+export class MastersPage implements OnInit {
   profiles;
   constructor(
     private http: HttpClient,
@@ -27,7 +27,7 @@ export class Tab3Page implements OnInit {
         throw error;
       }
       if (profiles) {
-        console.log('profiles are ', profiles);
+        console.log('profiles are ', profiles[0]);
         this.profiles = profiles;
       }
     } catch (error) {

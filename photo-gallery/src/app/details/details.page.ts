@@ -31,7 +31,7 @@ export class DetailsPage implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/tabs/tab3']);
+    this.router.navigate(['/tabs/masters']);
   }
 
   vote() {

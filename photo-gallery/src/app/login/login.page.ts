@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
     try {
       await this.supabase.signIn(this.email, this.password);
       await loader.dismiss();
-      this.router.navigate(['/tabs/tab3'], { replaceUrl: true });
+      this.router.navigate(['/tabs/masters'], { replaceUrl: true });
     } catch (error) {
       await loader.dismiss();
       await this.supabase.createNotice(

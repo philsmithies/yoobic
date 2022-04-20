@@ -18,9 +18,9 @@ const routes: Routes = [
           import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
       },
       {
-        path: 'tab3',
+        path: 'masters',
         loadChildren: () =>
-          import('../tab3/tab3.module').then((m) => m.Tab3PageModule),
+          import('../masters/masters.module').then((m) => m.MastersPageModule),
       },
       {
         path: 'tab4',
@@ -30,7 +30,7 @@ const routes: Routes = [
       {
         path: 'tab5',
         loadChildren: () =>
-          import('../feed/feed.module').then((m) => m.FeedPageModule),
+          import('../myNotes/myNotes.module').then((m) => m.FeedPageModule),
       },
       {
         path: 'details',

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AccountPageRoutingModule } from './account-routing.module';
 
 import { AccountPage } from './account.page';
-import { AvatarComponentModule } from '../avatar/avatar.module';
+import { AvatarComponentModule } from '../shared/avatar/avatar.module';
 
 @NgModule({
   imports: [
@@ -15,8 +15,8 @@ import { AvatarComponentModule } from '../avatar/avatar.module';
     FormsModule,
     IonicModule,
     AccountPageRoutingModule,
-    AvatarComponentModule
+    AvatarComponentModule,
   ],
-  declarations: [AccountPage]
+  declarations: [AccountPage],
 })
 export class AccountPageModule {}

@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import { MastersPage } from './masters.page';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { MastersPageRoutingModule } from './masters-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -17,9 +17,9 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     IonicModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }]),
-    Tab3PageRoutingModule,
+    RouterModule.forChild([{ path: '', component: MastersPage }]),
+    MastersPageRoutingModule,
   ],
-  declarations: [Tab3Page],
+  declarations: [MastersPage],
 })
-export class Tab3PageModule {}
+export class MastersPageModule {}

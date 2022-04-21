@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Feed</ion-title>
+    <ion-title>My Notes</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -28,14 +28,21 @@
       </ion-button>
     </form>
   </ion-card>
-
   <div *ngIf="errorText">{{ errorText }}</div>
-  <ion-card *ngIf="notes.length; else emptyList" class="note-wrapper">
-    <div *ngFor="let note of notes" class="note-task">
-      {{note.task}}
-      <button (click)="delete(note.id)">X</button>
+  <div *ngIf="notes.length; else emptyList" class="note-wrapper">
+    <div button *ngFor="let note of notes" class="note">
+      <ion-button
+        (click)="delete(note.id)"
+        color="danger"
+        fill="clear"
+        class="note-delete-button"
+        >x</ion-button
+      >
+
+      <ion-label class="note-text"> {{note.task}}</ion-label>
     </div>
-  </ion-card>
+  </div>
+
   <ng-template #emptyList>
     <ion-content class="empty-feed-text">
       There aren't any notes yet!

@@ -37,11 +37,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/myNotes/myNotes.module').then((m) => m.FeedPageModule),
   },
-  {
-    path: 'users',
-    loadChildren: () =>
-      import('./pages/users/users.module').then((m) => m.UsersPageModule),
-  },
 ];
 @NgModule({
   imports: [

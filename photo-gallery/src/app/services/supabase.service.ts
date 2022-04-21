@@ -23,7 +23,6 @@ export interface Profile {
   username: string;
   avatar_url: string;
   bio: string;
-  favourites: Array<StarWarsMaster>;
 }
 
 @Injectable({
@@ -52,8 +51,8 @@ export class SupabaseService {
 
   get profile() {
     return this.supabase
-      .from('profiles')
-      .select(`username, avatar_url`)
+      .from('user')
+      .select(`username, avatar_url, bio`)
       .eq('id', this.user?.id)
       .single();
   }
@@ -63,7 +62,7 @@ export class SupabaseService {
   }
 
   get profiles() {
-    return this.supabase.from('profiles').select(`username, avatar_url`);
+    return this.supabase.from('user').select(`username, avatar_url, bio`);
   }
 
   /**
@@ -112,7 +111,7 @@ export class SupabaseService {
       updated_at: new Date(),
     };
 
-    return this.supabase.from('profiles').upsert(update, {
+    return this.supabase.from('user').upsert(update, {
       returning: 'minimal', // Don't return the value after inserting
     });
   }

@@ -8,40 +8,34 @@
 </ion-header>
 
 <ion-content>
-  <app-avatar
-    [avatarUrl]="this.profile?.avatar_url"
-    (upload)="updateProfile($event)"
-  ></app-avatar>
-  <form>
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input type="email" [value]="session?.user?.email"></ion-input>
-    </ion-item>
+  <div class="account-wrapper">
+    <app-avatar
+      [avatarUrl]="this.profile?.avatar_url"
+      (upload)="updateProfile($event)"
+    ></app-avatar>
+    <form>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" [value]="session?.user?.email"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Name</ion-label>
-      <ion-input
-        type="text"
-        name="username"
-        [(ngModel)]="profile.username"
-      ></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input
+          type="text"
+          name="username"
+          [(ngModel)]="profile.username"
+        ></ion-input>
+      </ion-item>
 
-    <div class="ion-text-center">
-      <ion-button fill="clear" (click)="updateProfile()"
+      <ion-item>
+        <ion-label position="stacked">Bio</ion-label>
+        <ion-textarea name="bio" [(ngModel)]="profile.bio"></ion-textarea>
+      </ion-item>
+
+      <ion-button fill="solid" color="secondary" (click)="updateProfile()"
         >Update Profile</ion-button
       >
-    </div>
-  </form>
-
-  <div class="ion-text-center">
-    <ion-button fill="clear" (click)="signOut()">Log Out</ion-button>
-  </div>
-
-  <div *ngIf="profiles">
-    <div *ngFor="let profile of profiles">
-      {{profile.username}}
-      <app-avatar [avatarUrl]="profile.avatar_url"></app-avatar>
-    </div>
+    </form>
   </div>
 </ion-content>

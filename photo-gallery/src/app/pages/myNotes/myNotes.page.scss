@@ -1,17 +1,18 @@
 .note-task {
-  background-color: white;
-  width: 80%;
+  width: 300px;
   padding: 2em;
-  border: 1px solid green;
   margin-bottom: 0.5em;
   border-radius: 15px;
 }
+
 .note-wrapper {
   padding-top: 1.5em;
   height: 80vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  flex-shrink: none;
+  padding: 3em;
 }
 
 .note-add {
@@ -35,7 +36,31 @@
 }
 
 .empty-feed-text {
-  background-color: red;
   text-align: center;
   margin: 0 auto;
+}
+
+.note {
+  background-color: var(--ion-color-warning);
+  width: 200px;
+  height: 200px;
+  border: 0.1px solid black;
+  margin: 1em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  font-weight: bold;
+  color: black;
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+}
+
+.note-text {
+  grid-column: 2/3;
+  align-self: center;
+  text-align: center;
+}
+
+.note-delete-button {
+  grid-column: 1/2;
+  text-align: center;
 }

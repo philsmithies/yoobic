@@ -25,7 +25,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'tab4',
+        path: 'account',
         loadChildren: () =>
           import('../pages/account/account.module').then(
             (m) => m.AccountPageModule
@@ -44,11 +44,6 @@ const routes: Routes = [
           import('../pages/details/details.module').then(
             (m) => m.DetailsPageModule
           ),
-      },
-      {
-        path: 'users',
-        loadChildren: () =>
-          import('../pages/users/users.module').then((m) => m.UsersPageModule),
       },
       {
         path: '',

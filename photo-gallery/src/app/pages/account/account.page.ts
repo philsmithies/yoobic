@@ -14,7 +14,6 @@ export class AccountPage implements OnInit {
     username: '',
     avatar_url: '',
     bio: '',
-    favourites: [],
   };
 
   session = this.supabase.session;
@@ -26,7 +25,6 @@ export class AccountPage implements OnInit {
   ) {}
   ngOnInit() {
     this.getProfile();
-    this.getProfiles();
   }
 
   async getProfile() {
@@ -36,20 +34,9 @@ export class AccountPage implements OnInit {
         throw error;
       }
       if (profile) {
+        console.log('profile is ', profile);
         this.profile = profile;
       }
-    } catch (error) {
-      alert(error.message);
-    }
-  }
-
-  async getProfiles() {
-    try {
-      let { data: profiles, error, status } = await this.supabase.profiles;
-      if (error && status !== 406) {
-        throw error;
-      }
-      this.profiles = profiles;
     } catch (error) {
       alert(error.message);
     }

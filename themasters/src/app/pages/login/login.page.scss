@@ -1,0 +1,60 @@
+.login-wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.masters-title {
+  margin: 1em 0 0 0;
+}
+
+.masters-subtitle {
+  margin: 0;
+}
+
+.login-form {
+  max-width: 80%;
+  max-width: 400px;
+  margin: 2em auto;
+  border-radius: 25px;
+  padding: 2em;
+}
+
+.login-link-text {
+  text-align: center;
+  margin: 1em auto;
+}
+
+.login-link {
+  transition: color 0.5s ease;
+}
+
+.login-link:hover {
+  cursor: pointer;
+  color: var(--ion-color-primary-shade);
+}
+
+.avatar {
+  min-height: 150px;
+  min-width: 150px;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 1em auto 0;
+}
+
+.login-button {
+  margin: 2em auto 0;
+}
+
+ion-grid {
+  height: 100%;
+  /*Not working with ion variables
+  */
+  background-color: #222428;
+}
+ion-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

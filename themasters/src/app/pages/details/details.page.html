@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title *ngIf="profile">{{profile.name}}'s Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-wrapper">
+    <ion-button (click)="goBack()" class="back-button">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <div *ngIf="profile" class="profile-inner">
+      <img src="{{profile.image}}" class="profile-image" />
+      <div class="profile-text">
+        <h2>{{profile.name}}</h2>
+        <ion-badge color="primary">Born: {{profile.born}}</ion-badge>
+        <ion-badge color="warning"
+          >Hometown: {{capitalizeString(profile.homeworld)}}</ion-badge
+        >
+        <ion-badge color="danger">Height: {{profile.height}}</ion-badge>
+        <ion-badge color="tertiary">Mass: {{profile.mass}}</ion-badge>
+        <ion-badge color="secondary"
+          >Species: {{capitalizeString(profile.species)}}</ion-badge
+        >
+        <a href="{{profile.wiki}}" class="read-more-link">Read More</a>
+        <div class="button-wrapper">
+          <ion-button (click)="vote()" expand="block">Add vote</ion-button>
+          <ion-button (click)="vote()" expand="block" color="danger"
+            >Favourite</ion-button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

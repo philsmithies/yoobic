@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <form [formGroup]="noteForm" (ngSubmit)="addNote()" class="note-add">
+      <ion-input
+        class="note-input"
+        type="text"
+        placeholder="Add a note?"
+        formControlName="task"
+        type="text"
+        color="primary"
+      ></ion-input>
+      <ion-button
+        type="submit"
+        expand="block"
+        fill="clear"
+        shape="round"
+        class="note-share-button"
+      >
+        Submit
+      </ion-button>
+    </form>
+  </ion-card>
+  <div *ngIf="errorText">{{ errorText }}</div>
+  <div *ngIf="notes.length; else emptyList" class="note-wrapper">
+    <div button *ngFor="let note of notes" class="note">
+      <ion-button
+        (click)="delete(note.id)"
+        color="danger"
+        fill="clear"
+        class="note-delete-button"
+        >x</ion-button
+      >
+
+      <ion-label class="note-text"> {{note.task}}</ion-label>
+    </div>
+  </div>
+
+  <ng-template #emptyList>
+    <ion-content class="empty-feed-text">
+      There aren't any notes yet!
+    </ion-content>
+  </ng-template>
+</ion-content>

@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable prefer-const */
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SupabaseService } from 'src/app/services/supabase.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class ChatPage implements OnInit {
   messageForm: FormGroup = new FormGroup({
     message: new FormControl(),
   });
+
   errorText: string | undefined | null;
 
   constructor(private readonly supabase: SupabaseService) {}
@@ -38,7 +40,18 @@ export class ChatPage implements OnInit {
 
   username(userId) {
     const user = this.users[userId];
+    if (!user) {
+      return '';
+    }
     return user.username ? user.username : 'New Account';
+  }
+
+  isUser(messageId) {
+    if (messageId === this.supabase.session.user.id) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   async getUsers() {
@@ -62,10 +75,6 @@ export class ChatPage implements OnInit {
       this.messageForm.reset();
     }
   }
-
-  /**
-   * TODO bad logic
-   */
 
   setUpMessagesSubscription = async (messages) => {
     await this.getMessages();

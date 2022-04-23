@@ -18,6 +18,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     if (this.supabase.session) {
+      console.log('the session is ', this.supabase.session);
       this.router.navigate(['/tabs/masters'], { replaceUrl: true });
     }
   }

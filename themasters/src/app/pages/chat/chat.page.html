@@ -10,7 +10,18 @@
   <div *ngIf="messages">
     <div *ngFor="let message of messages">
       {{message.content}} {{message.id}}
-      <p>1</p>
     </div>
   </div>
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+    <ion-input
+      type="text"
+      placeholder="Add a message?"
+      formControlName="message"
+      type="text"
+      color="primary"
+    ></ion-input>
+    <ion-button type="submit" expand="block" fill="clear" shape="round">
+      Submit
+    </ion-button>
+  </form>
 </ion-content>

@@ -185,6 +185,14 @@ export class SupabaseService {
     return this.supabase.from('starwars').select('*').eq('id', id).single();
   }
 
+  sendMessage(message: string) {
+    const userId = this.getSession()?.user?.id as string;
+    return this.supabase
+      .from('message')
+      .insert({ content: message, user_id: userId })
+      .single();
+  }
+
   setUpMessagesSubscription = async (messages) => {
     console.log('the messages in the change are', messages);
     await this.supabase

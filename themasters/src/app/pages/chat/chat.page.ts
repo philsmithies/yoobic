@@ -1,5 +1,6 @@
 /* eslint-disable prefer-const */
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { SupabaseService } from 'src/app/services/supabase.service';
 
 @Component({
@@ -9,6 +10,11 @@ import { SupabaseService } from 'src/app/services/supabase.service';
 })
 export class ChatPage implements OnInit {
   messages = [];
+  messageForm: FormGroup = new FormGroup({
+    message: new FormControl(),
+  });
+  errorText: string | undefined | null;
+
   constructor(private readonly supabase: SupabaseService) {}
 
   ngOnInit() {
@@ -29,6 +35,17 @@ export class ChatPage implements OnInit {
     }
   }
 
+  async sendMessage(): Promise<void> {
+    let messageText = this.messageForm.value.message.trim();
+    console.log('message text is ', messageText);
+    let { data: message, error } = await this.supabase.sendMessage(messageText);
+    if (error) {
+      this.errorText = error.message;
+    } else {
+      this.errorText = null;
+      this.messageForm.reset();
+    }
+  }
   setUpMessagesSubscription = async (messages) => {
     await this.getMessages();
     await this.supabase.setUpMessagesSubscription(this.messages);

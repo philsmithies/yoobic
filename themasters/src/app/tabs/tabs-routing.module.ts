@@ -46,6 +46,11 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'chat',
+        loadChildren: () =>
+          import('../pages/chat/chat.module').then((m) => m.ChatPageModule),
+      },
+      {
         path: '',
         redirectTo: '/login',
         pathMatch: 'full',

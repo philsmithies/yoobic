@@ -37,6 +37,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/myNotes/myNotes.module').then((m) => m.FeedPageModule),
   },
+  {
+    path: 'chat',
+    loadChildren: () =>
+      import('./pages/chat/chat.module').then((m) => m.ChatPageModule),
+  },
 ];
 @NgModule({
   imports: [

@@ -8,11 +8,11 @@ import { SupabaseService } from 'src/app/services/supabase.service';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
-  messages;
+  messages = [];
   constructor(private readonly supabase: SupabaseService) {}
 
   ngOnInit() {
-    this.getMessages();
+    this.setUpMessagesSubscription(this.messages);
   }
 
   async getMessages() {
@@ -22,11 +22,15 @@ export class ChatPage implements OnInit {
         throw error;
       }
       if (messages) {
-        console.log('messages are ', messages[0]);
         this.messages = messages;
       }
     } catch (error) {
       alert(error.message);
     }
   }
+
+  setUpMessagesSubscription = async (messages) => {
+    await this.getMessages();
+    await this.supabase.setUpMessagesSubscription(this.messages);
+  };
 }

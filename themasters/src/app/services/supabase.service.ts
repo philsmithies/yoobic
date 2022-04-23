@@ -184,4 +184,15 @@ export class SupabaseService {
   starWarsProfile(id) {
     return this.supabase.from('starwars').select('*').eq('id', id).single();
   }
+
+  setUpMessagesSubscription = async (messages) => {
+    console.log('the messages in the change are', messages);
+    await this.supabase
+      .from('message')
+      .on('INSERT', (payload) => {
+        messages.push(payload.new);
+        console.log('final messages are ', messages);
+      })
+      .subscribe();
+  };
 }

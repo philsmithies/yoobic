@@ -9,7 +9,10 @@
   <button (click)="getMessages()">get messages</button>
   <div *ngIf="messages">
     <div *ngFor="let message of messages">
-      {{message.content}} {{message.id}}
+      <div *ngIf="users">
+        <span>{{username(message.user_id)}}</span>
+      </div>
+      {{message.content}}
     </div>
   </div>
   <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">

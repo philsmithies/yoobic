@@ -194,13 +194,32 @@ export class SupabaseService {
   }
 
   setUpMessagesSubscription = async (messages) => {
-    console.log('the messages in the change are', messages);
     await this.supabase
       .from('message')
       .on('INSERT', (payload) => {
         messages.push(payload.new);
-        console.log('final messages are ', messages);
       })
       .subscribe();
+  };
+
+  getUsersFromSupabase = async (users, userIds) => {
+    const usersToGet = Array.from(userIds).filter(
+      (userId) => !users.includes(userId)
+    );
+    if (usersToGet.length === 0) {
+      return users;
+    } else {
+      console.log('triggers');
+      const { data } = await this.supabase
+        .from('user')
+        .select('id, username')
+        .in('id', usersToGet);
+
+      const newUsers = {};
+      data.forEach((user) => {
+        newUsers[user.id] = user;
+      });
+      return Object.assign({}, users, newUsers);
+    }
   };
 }

@@ -10,7 +10,7 @@ import { SupabaseService } from 'src/app/services/supabase.service';
 })
 export class ChatPage implements OnInit {
   messages = [];
-  users;
+  users = [];
   messageForm: FormGroup = new FormGroup({
     message: new FormControl(),
   });
@@ -36,8 +36,18 @@ export class ChatPage implements OnInit {
     }
   }
 
+  username(userId) {
+    const user = this.users[userId];
+    return user.username ? user.username : 'New Account';
+  }
+
   async getUsers() {
-    this.users = new Set(this.messages.map((message) => message.user_id));
+    const userIds = new Set(this.messages.map((message) => message.user_id));
+    const newUsers = await this.supabase.getUsersFromSupabase(
+      this.users,
+      userIds
+    );
+    this.users = newUsers;
     console.log('users is ', this.users);
   }
 

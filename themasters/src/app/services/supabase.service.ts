@@ -89,6 +89,15 @@ export class SupabaseService {
     }
   }
 
+  async signInWithGithub() {
+    const { user, session, error } = await this.supabase.auth.signIn({
+      provider: 'github',
+    });
+    if (error) {
+      throw error;
+    }
+  }
+
   async signUp(userEmail: string, userPassword: string) {
     console.log('user is', userEmail, userPassword);
     const { user, session, error } = await this.supabase.auth.signUp({

@@ -16,7 +16,12 @@ export class LoginPage implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.supabase.session) {
+      this.router.navigate(['/tabs/masters'], { replaceUrl: true });
+    }
+  }
+
   async handleLogin(event: any) {
     event.preventDefault();
     const loader = await this.supabase.createLoader();
@@ -37,6 +42,18 @@ export class LoginPage implements OnInit {
     this.email = 'obiwan@kenobi.net';
     this.password = 'hiluke';
     this.handleLogin(event);
+  }
+
+  async handleGithubLogin(event: any) {
+    event.preventDefault();
+    try {
+      await this.supabase.signInWithGithub();
+    } catch (error) {
+      await this.supabase.createNotice(
+        error.error_description || error.message
+      );
+    }
+    this.router.navigate(['/tabs/masters'], { replaceUrl: true });
   }
 
   handleFormChange() {

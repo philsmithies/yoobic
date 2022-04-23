@@ -47,6 +47,14 @@
             >
           </ion-list>
         </form>
+        <div class="githubSignInWrapper">
+          <ion-text>Sign In With:</ion-text>
+          <ion-icon
+            size="large"
+            name="logo-github"
+            (click)="handleGithubLogin($event)"
+          ></ion-icon>
+        </div>
         <div class="login-link-text">
           Don't have an account?
           <a (click)="handleFormChange()" class="login-link">Sign Up</a>
@@ -96,12 +104,21 @@
               minlength="6"
             ></ion-input>
           </ion-item>
+
           <ion-list class="ion-text-center">
             <ion-button type="submit" fill="outline" class="login-button"
               >Sign up</ion-button
             >
           </ion-list>
         </form>
+        <div class="githubSignInWrapper">
+          <ion-text>Sign Up With:</ion-text>
+          <ion-icon
+            size="large"
+            name="logo-github"
+            (click)="handleGithubLogin($event)"
+          ></ion-icon>
+        </div>
         <div class="login-link-text">
           Already got an account?
           <a (click)="handleFormChange()" class="login-link">Sign In</a>

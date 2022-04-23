@@ -9,6 +9,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 
 import { AvatarComponentModule } from '../../shared/avatar/avatar.module';
+import { GithubComponent } from './github/github.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { AvatarComponentModule } from '../../shared/avatar/avatar.module';
     LoginPageRoutingModule,
     AvatarComponentModule,
   ],
-  declarations: [LoginPage],
+  declarations: [LoginPage, GithubComponent],
 })
 export class LoginPageModule {}

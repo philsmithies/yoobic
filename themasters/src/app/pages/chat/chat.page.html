@@ -6,4 +6,11 @@
 
 <ion-content>
   <p>the chat is incoming!</p>
+  <button (click)="getMessages()">get messages</button>
+  <div *ngIf="messages">
+    <div *ngFor="let message of messages">
+      {{message.content}} {{message.id}}
+      <p>1</p>
+    </div>
+  </div>
 </ion-content>

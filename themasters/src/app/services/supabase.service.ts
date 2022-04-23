@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
@@ -63,6 +64,10 @@ export class SupabaseService {
 
   get profiles() {
     return this.supabase.from('user').select(`username, avatar_url, bio`);
+  }
+
+  get getMessages() {
+    return this.supabase.from('message').select('*');
   }
 
   /**

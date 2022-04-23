@@ -20,8 +20,12 @@
 
       <ion-label>
         {{profile.name}}<br />
-        <div *ngIf="profile.height">Height: {{profile.height}}</div>
-        <div *ngIf="profile.mass">Mass: {{profile.mass}}</div>
+        <div *ngIf="profile.height" class="profile-details-text">
+          Height: {{profile.height}}
+        </div>
+        <div *ngIf="profile.mass" class="profile-details-text">
+          Mass: {{profile.mass}}
+        </div>
       </ion-label>
 
       <ion-chip color="secondary" slot="end">

@@ -1,12 +1,11 @@
 .note-task {
   width: 300px;
   padding: 2em;
-  margin-bottom: 0.5em;
   border-radius: 15px;
 }
 
 .note-wrapper {
-  padding-top: 1.5em;
+  padding-top: 1em;
   height: 80vh;
   display: flex;
   flex-flow: row wrap;
@@ -20,19 +19,17 @@
   flex-direction: row;
   align-items: center;
   margin: 1em auto;
-  width: 60vw;
 }
 
 .note-input {
   background-color: white;
   border-radius: 5px;
-  width: 60%;
 }
 
 .note-share-button {
   border: 2px solid var(--ion-color-primary);
   border-radius: 5px;
-  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .empty-feed-text {

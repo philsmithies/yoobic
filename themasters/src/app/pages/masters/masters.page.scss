@@ -13,6 +13,10 @@ ion-icon {
   transition: 0.25s ease transform;
 }
 
+.profile-details-text {
+  font-size: small;
+}
+
 ion-icon:hover {
   cursor: pointer;
   transform: scale(1.1);

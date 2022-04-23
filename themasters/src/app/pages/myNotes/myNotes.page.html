@@ -10,7 +10,7 @@
   <ion-card>
     <form [formGroup]="noteForm" (ngSubmit)="addNote()" class="note-add">
       <ion-input
-        class="note-input"
+        class="note-input ion-padding-start ion-margin"
         type="text"
         placeholder="Add a note?"
         formControlName="task"
@@ -22,6 +22,7 @@
         expand="block"
         fill="clear"
         shape="round"
+        size="small"
         class="note-share-button"
       >
         Submit

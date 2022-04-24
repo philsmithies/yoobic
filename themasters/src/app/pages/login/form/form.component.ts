@@ -43,4 +43,20 @@ export class FormComponent implements OnInit {
   handleFormChange() {
     this.loginActive = !this.loginActive;
   }
+
+  async handleSignUp(event: any) {
+    event.preventDefault();
+    const loader = await this.supabase.createLoader();
+    await loader.present();
+    try {
+      await this.supabase.signUp(this.email, this.password);
+      await loader.dismiss();
+      await this.supabase.createNotice('Signed up!');
+    } catch (error) {
+      await loader.dismiss();
+      await this.supabase.createNotice(
+        error.error_description || error.message
+      );
+    }
+  }
 }

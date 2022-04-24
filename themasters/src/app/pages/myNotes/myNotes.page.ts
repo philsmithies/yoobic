@@ -31,4 +31,13 @@ export class MyNotesPage implements OnInit {
       this.notes = notes ?? [];
     }
   }
+
+  async delete(id: string): Promise<void> {
+    try {
+      await this.supabase.deleteNote(id);
+      this.notes = this.notes.filter((note) => note.id !== id);
+    } catch (error) {
+      console.error('error', error);
+    }
+  }
 }

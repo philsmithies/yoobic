@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="messages">
-    <div *ngFor="let message of messages" class="messages-wrapper">
+  <div *ngIf="messages" class="messages-wrapper">
+    <div *ngFor="let message of messages">
       <div
         [ngClass]="isUser(message.user_id) ? 'sender-message' : 'receiver-message'"
       >

@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path: 'feed',
     loadChildren: () =>
-      import('./pages/myNotes/myNotes.module').then((m) => m.FeedPageModule),
+      import('./pages/myNotes/myNotes.module').then((m) => m.NotesPageModule),
   },
   {
     path: 'chat',

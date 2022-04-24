@@ -1,0 +1,15 @@
+<form
+  [formGroup]="messageForm"
+  (ngSubmit)="sendMessage()"
+  class="message-form-wrapper"
+>
+  <ion-input
+    type="text"
+    placeholder="Add a message?"
+    formControlName="message"
+    type="text"
+    color="primary"
+    class="ion-padding"
+  ></ion-input>
+  <button type="submit" class="submit-button">Submit</button>
+</form>

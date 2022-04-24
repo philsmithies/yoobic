@@ -1,0 +1,26 @@
+<ion-item button class="ion-padding" (click)="openMasterProfile(master)">
+  <img
+    src="{{ master.image }}"
+    width="100px"
+    height="100px"
+    slot="start"
+    class="avatar-icon"
+  />
+
+  <ion-label>
+    {{ master.name }}<br />
+    <div *ngIf="master.height" class="master-details-text">
+      Height: {{ master.height }}
+    </div>
+    <div *ngIf="master.mass" class="master-details-text">
+      Mass: {{ master.mass }}
+    </div>
+  </ion-label>
+
+  <ion-chip color="secondary" slot="end">
+    <ion-label color="secondary">{{
+      capitalizeString(master.species)
+    }}</ion-label>
+  </ion-chip>
+  <ion-icon name="heart-outline" slot="end" color="secondary"></ion-icon>
+</ion-item>

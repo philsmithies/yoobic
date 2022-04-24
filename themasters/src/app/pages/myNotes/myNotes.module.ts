@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { MyNotesPageRoutingModule } from './myNotes-routing.module';
 import { MyNotesPage } from './myNotes.page';
+import { NoteformComponent } from './noteform/noteform.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { MyNotesPage } from './myNotes.page';
     IonicModule,
     MyNotesPageRoutingModule,
   ],
-  declarations: [MyNotesPage],
+  declarations: [MyNotesPage, NoteformComponent],
 })
-export class FeedPageModule {}
+export class NotesPageModule {}

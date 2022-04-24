@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-import { Storage } from '@ionic/storage-angular';
-
-import { AuthService } from './services/auth.service';
 import { SupabaseService } from './services/supabase.service';
 
 @Component({
@@ -12,18 +8,6 @@ import { SupabaseService } from './services/supabase.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  // constructor(
-  //   private auth: AuthService,
-  //   private router: Router,
-  //   private storage: Storage,
-  //   private menu: MenuController
-  // ) {}
-
-  // async ngOnInit() {
-  //   // eslint-disable-next-line prefer-const
-  //   await this.storage.create();
-  //   console.log('storage has been created', this.storage);
-  // }
   session = this.supabase.session;
   constructor(private supabase: SupabaseService, private router: Router) {
     this.supabase.authChanges((_, session) => {
@@ -33,8 +17,8 @@ export class AppComponent {
       }
     });
   }
+
   async signOut() {
-    console.log('testing?');
     await this.supabase.signOut();
     this.router.navigate(['/'], { replaceUrl: true });
   }

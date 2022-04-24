@@ -13,9 +13,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class MyNotesPage implements OnInit {
   notes: Note[] = [];
-  noteForm: FormGroup = new FormGroup({
-    task: new FormControl(),
-  });
   errorText: string | undefined | null;
   constructor(
     private readonly supabase: SupabaseService,
@@ -26,38 +23,12 @@ export class MyNotesPage implements OnInit {
     this.fetchNotes();
   }
 
-  async addNote(): Promise<void> {
-    let task = this.noteForm.value.task.trim();
-    if (task.length <= 3) {
-      this.errorText = 'Note length should be more than 3!';
-    } else {
-      let { data: note, error } = await this.supabase.addNote(task);
-      if (error) {
-        this.errorText = error.message;
-      } else {
-        this.notes = [note, ...this.notes];
-        this.errorText = null;
-        this.noteForm.reset();
-      }
-    }
-  }
-
   async fetchNotes(): Promise<void> {
     let { data: notes, error } = await this.supabase.fetchNotes();
-    console.log('notes list', notes);
     if (error) {
       console.error('error', error.message);
     } else {
       this.notes = notes ?? [];
-    }
-  }
-
-  async delete(id: string): Promise<void> {
-    try {
-      await this.supabase.deleteNote(id);
-      this.notes = this.notes.filter((note) => note.id !== id);
-    } catch (error) {
-      console.error('error', error);
     }
   }
 }

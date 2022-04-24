@@ -1,0 +1,20 @@
+<form [formGroup]="noteForm" (ngSubmit)="addNote()" class="note-add">
+  <ion-input
+    class="note-input ion-padding-start ion-margin"
+    type="text"
+    placeholder="Add a note?"
+    formControlName="task"
+    type="text"
+    color="primary"
+  ></ion-input>
+  <ion-button
+    type="submit"
+    expand="block"
+    fill="clear"
+    shape="round"
+    size="small"
+    class="note-share-button"
+  >
+    Submit
+  </ion-button>
+</form>

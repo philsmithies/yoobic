@@ -8,32 +8,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div *ngFor="let profile of profiles">
-    <ion-item button class="ion-padding" (click)="openProfile(profile)">
-      <img
-        src="{{profile.image}}"
-        width="100px"
-        height="100px"
-        slot="start"
-        class="avatar-icon"
-      />
-
-      <ion-label>
-        {{profile.name}}<br />
-        <div *ngIf="profile.height" class="profile-details-text">
-          Height: {{profile.height}}
-        </div>
-        <div *ngIf="profile.mass" class="profile-details-text">
-          Mass: {{profile.mass}}
-        </div>
-      </ion-label>
-
-      <ion-chip color="secondary" slot="end">
-        <ion-label color="secondary"
-          >{{capitalizeString(profile.species)}}</ion-label
-        >
-      </ion-chip>
-      <ion-icon name="heart-outline" slot="end" color="secondary"></ion-icon>
-    </ion-item>
+  <div *ngFor="let master of masters">
+    <app-individual-master-card [master]="master"></app-individual-master-card>
   </div>
 </ion-content>

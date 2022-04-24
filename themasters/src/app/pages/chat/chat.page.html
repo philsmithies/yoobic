@@ -13,7 +13,7 @@
       <div
         [ngClass]="isUser(message.user_id) ? 'sender-message' : 'receiver-message'"
       >
-        <span *ngIf="users" class="username-text"
+        <span *ngIf="!isUser(message.user_id)" class="username-text"
           >{{username(message.user_id)}}</span
         >
         <div
@@ -24,19 +24,5 @@
       </div>
     </div>
   </div>
-  <form
-    [formGroup]="messageForm"
-    (ngSubmit)="sendMessage()"
-    class="message-form-wrapper"
-  >
-    <ion-input
-      type="text"
-      placeholder="Add a message?"
-      formControlName="message"
-      type="text"
-      color="primary"
-      class="ion-padding-start"
-    ></ion-input>
-    <ion-button type="submit" fill="solid" color="primary"> Submit </ion-button>
-  </form>
+  <app-new-message></app-new-message>
 </ion-content>

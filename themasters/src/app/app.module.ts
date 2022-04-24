@@ -13,10 +13,6 @@ import { Firebase } from '@awesome-cordova-plugins/firebase/ngx';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth/';
-import { AngularFireFunctionsModule } from '@angular/fire/compat/functions/';
-import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
-import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -27,9 +23,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireFunctionsModule,
-    AngularFireMessagingModule,
     BrowserModule,
     CommonModule,
     IonicModule.forRoot(),
@@ -41,7 +34,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [

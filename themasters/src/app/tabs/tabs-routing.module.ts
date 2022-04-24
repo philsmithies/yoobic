@@ -8,16 +8,6 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () =>
-          import('../pages/login/login.module').then((m) => m.LoginPageModule),
-      },
-      {
-        path: 'tab2',
-        loadChildren: () =>
-          import('../pages/tab2/tab2.module').then((m) => m.Tab2PageModule),
-      },
-      {
         path: 'masters',
         loadChildren: () =>
           import('../pages/masters/masters.module').then(
@@ -32,10 +22,10 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'tab5',
+        path: 'myNotes',
         loadChildren: () =>
           import('../pages/myNotes/myNotes.module').then(
-            (m) => m.FeedPageModule
+            (m) => m.NotesPageModule
           ),
       },
       {

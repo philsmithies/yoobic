@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
   email = '';
   password = '';
   loginActive = true;
+
   constructor(
     private readonly supabase: SupabaseService,
     private router: Router

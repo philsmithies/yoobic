@@ -18,31 +18,6 @@ $ ionic serve
 
 Visit `http://localhost:8100/` to view the app
 
-####Login:
-
-<img src="./themasters/src/assets/readme/login.png" width="300" />
-
-#### Master View:
-
-<img src="./themasters/src/assets/readme/masters.png" width="300" />
-
-#### Details:
-
-<img src="./themasters/src/assets/readme/details.png" width="300" />
-
-#### Chat:
-
-<img src="./themasters/src/assets/readme/chat.png" width="300" />
-<br/>
-
-## My Approach
-
-- I wanted to take on this technical test from YOOBIC as a great learning opportuanity. I had previously used mainly React and had always wanted to work with Angular.
-  <br/>
-- For the brief I wanted to run with the original concept of having a an application that leveraged an API but also was fully functional and would work as a standalone application with working views and logic.
-  <br/>
-- Seperating my views from my logic became a joy to work with after the initial learning curve. It meant that the code was well structured by default and is (hopefully) easier to read for other developers that come to work on the project.
-
 ## Features
 
 - **Sign In / Sign Up**
@@ -71,6 +46,33 @@ Visit `http://localhost:8100/` to view the app
 
   Although not in the brief it was on one of the wireframes. Whilst learning Angular I built a CRUD application and I expanded this to build a notes app that is only visible to each individual.
   <br/>
+
+## Preview
+
+### Login:
+
+<img src="./themasters/src/assets/readme/login.png" width="300" />
+
+### Master View:
+
+<img src="./themasters/src/assets/readme/masters.png" width="300" />
+
+### Details:
+
+<img src="./themasters/src/assets/readme/details.png" width="300" />
+
+### Chat:
+
+<img src="./themasters/src/assets/readme/chat.png" width="300" />
+<br/>
+
+## My Approach
+
+- I wanted to take on this technical test from YOOBIC as a great learning opportuanity. I had previously used mainly React and had always wanted to work with Angular.
+  <br/>
+- For the brief I wanted to run with the original concept of having a an application that leveraged an API but also was fully functional and would work as a standalone application with working views and logic.
+  <br/>
+- Seperating my views from my logic became a joy to work with after the initial learning curve. It meant that the code was well structured by default and is (hopefully) easier to read for other developers that come to work on the project.
 
 ## User Stories
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { UserGuard } from '../guards/user.guard';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
           import('../pages/masters/masters.module').then(
             (m) => m.MastersPageModule
           ),
+        // canLoad: [UserGuard],
       },
       {
         path: 'account',

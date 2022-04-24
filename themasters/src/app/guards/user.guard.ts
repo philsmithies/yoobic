@@ -2,25 +2,38 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  CanLoad,
+  Route,
   Router,
   RouterStateSnapshot,
+  UrlSegment,
+  UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Storage } from '@ionic/storage-angular';
+import { SupabaseService } from '../services/supabase.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserGuard implements CanActivate {
-  constructor(private storage: Storage, private router: Router) {}
+export class UserGuard implements CanLoad {
+  constructor(private supabase: SupabaseService, private router: Router) {}
+  canLoad(
+    route: Route,
+    segments: UrlSegment[]
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
+    throw new Error('Method not implemented.');
+  }
   async canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-    const isSignedIn = await this.storage.get('userToken');
-
+    const isSignedIn = this.supabase.session.access_token;
     if (!isSignedIn) {
-      this.router.navigateByUrl('auth');
+      this.router.navigateByUrl('login');
     }
 
     return false;

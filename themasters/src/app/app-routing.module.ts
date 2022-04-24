@@ -7,19 +7,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
-    // canActivate: [UserGuard],
   },
-  // {
-  //   path: '',
-  //   children: [{ path: '', redirectTo: '/login', pathMatch: 'full' }],
-
-  //   // canActivate: [UserGuard],
-  // },
   {
     path: 'details',
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsPageModule),
-    // canActivate: [UserGuard],
   },
 
   {

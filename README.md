@@ -18,20 +18,20 @@ $ ionic serve
 
 Visit `http://localhost:8100/` to view the app
 
-Login:
-<br/>
+####Login:
+
 <img src="./themasters/src/assets/readme/login.png" width="300" />
-<br/>
-Master View:
-<br/>
+
+#### Master View:
+
 <img src="./themasters/src/assets/readme/masters.png" width="300" />
-<br/>
-Details:
-<br/>
+
+#### Details:
+
 <img src="./themasters/src/assets/readme/details.png" width="300" />
-<br/>
-Chat:
-<br/>
+
+#### Chat:
+
 <img src="./themasters/src/assets/readme/chat.png" width="300" />
 <br/>
 

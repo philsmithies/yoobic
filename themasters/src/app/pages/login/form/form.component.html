@@ -1,0 +1,96 @@
+<div *ngIf="loginActive; else signUpBlock" class="login-wrapper">
+  <ion-text color="secondary ion-text-center">
+    <h1 class="masters-title">The Masters:</h1>
+    <h1 class="masters-subtitle">Login</h1>
+  </ion-text>
+  <ion-list inset="true" class="login-form">
+    <form (ngSubmit)="handleLogin($event)" class="ion-padding-top">
+      <ion-item class="ion-padding-start">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          [(ngModel)]="email"
+          name="email"
+          autocomplete
+          type="email"
+          color="primary"
+          class="ion-padding-start"
+          minlength="7"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item class="ion-padding-start">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          autocomplete
+          type="password"
+          minlength="6"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-list class="ion-text-center">
+        <ion-button type="submit" fill="outline" class="login-button"
+          >Login</ion-button
+        >
+      </ion-list>
+    </form>
+    <app-github></app-github>
+    <div class="login-link-text">
+      Don't have an account?
+      <a (click)="handleFormChange()" class="login-link">Sign Up</a>
+    </div>
+    <div class="login-link-text">
+      Or Sign in
+      <a (click)="handleAnonymousLogin($event)" class="login-link"
+        >Anonymously</a
+      >
+    </div>
+  </ion-list>
+</div>
+
+<ng-template #signUpBlock
+  ><div class="login-wrapper">
+    <ion-text color="secondary ion-text-center">
+      <h1 class="masters-title">The Masters:</h1>
+      <h1 class="masters-subtitle">Sign Up</h1>
+    </ion-text>
+    <ion-list inset="true" class="login-form">
+      <form (ngSubmit)="handleSignUp($event)" class="ion-padding-top">
+        <ion-item class="ion-padding-start">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input
+            [(ngModel)]="email"
+            name="email"
+            autocomplete
+            type="email"
+            color="primary"
+            class="ion-padding-start"
+            minlength="7"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="ion-padding-start">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input
+            [(ngModel)]="password"
+            name="password"
+            autocomplete
+            type="password"
+            minlength="6"
+          ></ion-input>
+        </ion-item>
+
+        <ion-list class="ion-text-center">
+          <ion-button type="submit" fill="outline" class="login-button"
+            >Sign up</ion-button
+          >
+        </ion-list>
+      </form>
+      <app-github></app-github>
+      <div class="login-link-text">
+        Already got an account?
+        <a (click)="handleFormChange()" class="login-link">Sign In</a>
+      </div>
+    </ion-list>
+  </div>
+</ng-template>

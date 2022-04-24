@@ -1,0 +1,15 @@
+.githubSignInWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1em 0;
+
+  ion-icon {
+    margin: 0.25em auto;
+    transition: all 0.25s ease;
+  }
+  ion-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}

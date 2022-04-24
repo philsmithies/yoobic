@@ -10,6 +10,7 @@ import { LoginPage } from './login.page';
 
 import { AvatarComponentModule } from '../../shared/avatar/avatar.module';
 import { GithubComponent } from './github/github.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { GithubComponent } from './github/github.component';
     LoginPageRoutingModule,
     AvatarComponentModule,
   ],
-  declarations: [LoginPage, GithubComponent],
+  declarations: [LoginPage, GithubComponent, FormComponent],
 })
 export class LoginPageModule {}

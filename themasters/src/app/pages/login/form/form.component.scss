@@ -1,0 +1,23 @@
+.login-form {
+  margin: 2em auto;
+  border-radius: 25px;
+  padding: 2em;
+}
+
+.login-link-text {
+  text-align: center;
+  margin: 1em auto;
+}
+
+.login-link {
+  transition: color 0.5s ease;
+}
+
+.login-link:hover {
+  cursor: pointer;
+  color: var(--ion-color-primary-shade);
+}
+
+.login-button {
+  margin: 2em auto 0;
+}

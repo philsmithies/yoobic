@@ -18,47 +18,8 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     if (this.supabase.session) {
-      console.log('the session is ', this.supabase.session);
       this.router.navigate(['/tabs/masters'], { replaceUrl: true });
     }
-  }
-
-  async handleLogin(event: any) {
-    event.preventDefault();
-    const loader = await this.supabase.createLoader();
-    await loader.present();
-    try {
-      await this.supabase.signIn(this.email, this.password);
-      await loader.dismiss();
-      this.router.navigate(['/tabs/masters'], { replaceUrl: true });
-    } catch (error) {
-      await loader.dismiss();
-      await this.supabase.createNotice(
-        error.error_description || error.message
-      );
-    }
-  }
-
-  async handleAnonymousLogin(event: any) {
-    this.email = 'obiwan@kenobi.net';
-    this.password = 'hiluke';
-    this.handleLogin(event);
-  }
-
-  async handleGithubLogin(event: any) {
-    event.preventDefault();
-    try {
-      await this.supabase.signInWithGithub();
-    } catch (error) {
-      await this.supabase.createNotice(
-        error.error_description || error.message
-      );
-    }
-    this.router.navigate(['/tabs/masters'], { replaceUrl: true });
-  }
-
-  handleFormChange() {
-    this.loginActive = !this.loginActive;
   }
 
   async handleSignUp(event: any) {

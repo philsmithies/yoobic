@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "6265007bb11b4acde2f2353a",
+    "index": 0,
+    "isActive": true,
+    "balance": "$2,071.64",
+    "picture": "http://placehold.it/32x32",
+    "age": 32,
+    "eyeColor": "brown",
+    "name": "Vinson Conner",
+    "gender": "male",
+    "email": "vinsonconner@polaria.com",
+    "phone": "+1 (808) 470-3953",
+    "address": "278 Monaco Place, Gardiner, New York, 5301"
+  },
+  {
+    "_id": "6265007b707920986ac77461",
+    "index": 1,
+    "isActive": true,
+    "balance": "$2,559.49",
+    "picture": "http://placehold.it/32x32",
+    "age": 33,
+    "eyeColor": "green",
+    "name": "Claudette Grimes",
+    "gender": "female",
+    "email": "claudettegrimes@polaria.com",
+    "phone": "+1 (839) 533-2840",
+    "address": "325 Lawrence Street, Fredericktown, Kansas, 4938"
+  },
+  {
+    "_id": "6265007b478cb23e70ba6a3f",
+    "index": 2,
+    "isActive": false,
+    "balance": "$1,787.36",
+    "picture": "http://placehold.it/32x32",
+    "age": 39,
+    "eyeColor": "brown",
+    "name": "Rowena Fischer",
+    "gender": "female",
+    "email": "rowenafischer@polaria.com",
+    "phone": "+1 (807) 516-2691",
+    "address": "521 Clove Road, Imperial, Tennessee, 3556"
+  },
+  {
+    "_id": "6265007bcaa231114f27da66",
+    "index": 3,
+    "isActive": true,
+    "balance": "$1,929.85",
+    "picture": "http://placehold.it/32x32",
+    "age": 36,
+    "eyeColor": "blue",
+    "name": "Joann Wilkinson",
+    "gender": "female",
+    "email": "joannwilkinson@polaria.com",
+    "phone": "+1 (956) 539-3999",
+    "address": "154 Conway Street, Keyport, Utah, 5357"
+  },
+  {
+    "_id": "6265007b400dc54706dd5610",
+    "index": 4,
+    "isActive": false,
+    "balance": "$2,527.75",
+    "picture": "http://placehold.it/32x32",
+    "age": 32,
+    "eyeColor": "blue",
+    "name": "Kate Moses",
+    "gender": "female",
+    "email": "katemoses@polaria.com",
+    "phone": "+1 (849) 501-2014",
+    "address": "901 Cropsey Avenue, Tolu, Connecticut, 4972"
+  }
+]

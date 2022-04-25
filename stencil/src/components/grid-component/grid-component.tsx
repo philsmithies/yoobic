@@ -25,7 +25,7 @@ export class GridComponent {
     return (
       <div class="grid">
         <div class="header">
-          <h2>Hello, World! I'm {this.gridContent[0]}</h2>
+          <h2>{this.gridContent[0]}</h2>
         </div>
         <br />
         <div class="subtitle">

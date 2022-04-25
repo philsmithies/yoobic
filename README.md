@@ -20,32 +20,29 @@ Visit `http://localhost:8100/` to view the app
 
 ## Features
 
-- **Sign In / Sign Up**
-  This includes a standard email and password entry with a dummy account for the users that want to test out the application. I also added a Github OATH sign in for those that didn't want to use a email.
-  <br/>
+### Sign In / Sign Up
 
-- **Chat Application**
-  It uses web sockets via supabase subscriptions to deliver a live messenger that works instantly between users and retrieves the data on each message that is added.
-  <br/>
+This includes a standard email and password entry with a dummy account for the users that want to test out the application. I also added a Github OATH sign in for those that didn't want to use a email.
 
-- **Master List**
-  A list view using ionic components. It cycles through an API I found that is like the Star Wars API except is has photos attached (https://akabab.github.io/starwars-api/) which I wanted to make the website a better experience for the user. A lot of the photos contained broken links so I scraped the data and uploaded it to my own database.
-  <br/>
+### Chat Application
 
-- **Details**
+It uses web sockets via supabase subscriptions to deliver a live messenger that works instantly between users and retrieves the data on each message that is added.
 
-  Each master has a Top Trumps style profile page where you can view more details about all the masters.
-  <br/>
+### Master List
 
-- **Hosted Postgres Backend**
+A list view using ionic components. It cycles through an API I found that is like the Star Wars API except is has photos attached (https://akabab.github.io/starwars-api/) which I wanted to make the website a better experience for the user. A lot of the photos contained broken links so I scraped the data and uploaded it to my own database.
 
-  I wanted the application to work remotely without the need for a local database running so this was a key feature to get from the start. I opted for Supabase as it is built on top of web sockets which I wanted to leverage for the live chat.
-  <br/>
+### Details
 
-- **Private Notes List**
+Each master has a Top Trumps style profile page where you can view more details about all the masters.
 
-  Although not in the brief it was on one of the wireframes. Whilst learning Angular I built a CRUD application and I expanded this to build a notes app that is only visible to each individual.
-  <br/>
+### Hosted Postgres Database
+
+I wanted the application to work remotely without the need for a local database running so this was a key feature to get from the start. I opted for Supabase as it is built on top of web sockets which I wanted to leverage for the live chat.
+
+### Private Notes List
+
+Although not in the brief it was on one of the wireframes. Whilst learning Angular I built a CRUD application and I expanded this to build a notes app that is only visible to each individual.
 
 ## Preview
 
